@@ -1,0 +1,2696 @@
+# 
+# PowerView 2.0 Menu for Cobalt Strike
+# Requires @harmj0y's PowerView https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
+# 
+# I didn't know of a way to check for currently imported PowerShell script 
+# and if felt janky importing everytime so it is up to you to manually import PowerView before interaction
+# 
+# By: SF - 0xthirteen
+#
+# TODO: Add credential object
+# TODO: Possibly remove the mass amount of code reuse? Maybe dynamic menus
+# TODO: Add more customization to commands
+#
+# Some functions like Invoke-UserHunter have a lot of options and may take up the whole screen depending on what size monitor...so be aware
+#
+
+
+popup beacon_top {
+	menu "PowerView" {
+		menu "Misc Functions"{
+			item "Get-IPAddress"{
+				local('$bid');
+				foreach $bid ($1){
+					getipaddress($bid);
+				}
+			}
+			item "Find-InterestingFile"{
+				local('$bid');
+				foreach $bid ($1){
+					findinterestingfile($bid);
+				}
+			}
+			item "Convert-NameToSid"{
+				local('$bid');
+				foreach $bid ($1){
+					convertnametosid($bid);
+				}
+			}
+			item "Convert-SidToName"{
+				local('$bid');
+				foreach $bid ($1){
+					convertsidtoname($bid);
+				}
+			}
+			item "Get-Proxy"{
+				local('$bid');
+				foreach $bid ($1){
+					getproxy($bid);
+				}
+			}
+			item "Get-PathAcl"{
+				local('$bid');
+				foreach $bid ($1){
+					getpathacl($bid);
+				}
+			}
+			item "Get-UserProperty"{
+				local('$bid');
+				foreach $bid ($1){
+					getuserproperty($bid);
+				}
+			}
+			item "Get-ComputerProperty"{
+				local('$bid');
+				foreach $bid ($1){
+					getcomputerproperty($bid);
+				}
+			}
+			item "Invoke-CheckLocalAdminAccess"{
+				local('$bid');
+				foreach $bid ($1){
+					invokechecklocaladminaccess($bid);
+				}
+			}
+			item "Get-DomainSearcher"{
+				local('$bid');
+				foreach $bid ($1){
+					getdomainsearcher($bid);
+				}
+			}
+			item "Get-ObjectAcl"{
+				local('$bid');
+				foreach $bid ($1){
+					getobjectacl($bid);
+				}
+			}
+			item "Add-ObjectAcl"{
+				local('$bid');
+				foreach $bid ($1){
+					addobjecctacl($bid);
+				}
+			}
+			item "Get-LastLoggedOn"{
+				local('$bid');
+				foreach $bid ($1){
+					getlastloggedon($bid);
+				}
+			}
+			item "Get-CachedRDPConnection"{
+				local('$bid');
+				foreach $bid ($1){
+					getcachedrdpconnection($bid);
+				}
+			}
+			item "Invoke-ACLScanner"{
+				local('$bid');
+				foreach $bid ($1){
+					invokeaclscanner($bid);
+				}
+			}
+			item "Get-GUIDMap"{
+				local('$bid');
+				foreach $bid ($1){
+					getguidmap($bid);
+				}
+			}
+			item "Get-DomainSID"{
+				local('$bid');
+				foreach $bid ($1){
+					getdomainsid($bid);
+				}
+			}			
+		}
+		menu "net * Functions"{
+			item "Get-NetDomain"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetdomain($bid);
+				}
+			}
+			item "Get-NetForest"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetforest($bid);
+				}
+			}
+			item "Get-NetForestDomain"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetforestdomain($bid);
+				}
+			}
+			item "Get-NetDomainController"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetdomaincontroller($bid);
+				}
+			}
+			item "Get-NetUser"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetuser($bid);
+				}
+			}
+			item "Add-NetUser"{
+				local('$bid');
+				foreach $bid ($1){
+					addnetuser($bid);
+				}
+			}
+			item "Get-NetComputer"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetcomputer($bid);
+				}
+			}
+			item "Get-NetOU"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetou($bid);
+				}
+			}
+			item "Get-NetSite"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetsite($bid);
+				}
+			}
+			item "Get-NetSubnet"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetsubnet($bid);
+				}
+			}
+			item "Get-NetGroup"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetgroup($bid);
+				}
+			}
+			item "Get-NetGroupMember"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetgroupmember($bid);
+				}
+			}
+			item "Get-NetLocalGroup"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetlocalgroup($bid);
+				}
+			}
+			item "Add-NetGroupUser"{
+				local('$bid');
+				foreach $bid ($1){
+					addnetgroupuser($bid);
+				}
+			}
+			item "Get-NetFileServer"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetfileserver($bid);
+				}
+			}
+			item "Get-NetShare"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetshare($bid);
+				}
+			}
+			item "Get-NetLoggedon"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetloggedon($bid);
+				}
+			}
+			item "Get-NetSession"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetsession($bid);
+				}
+			}
+			item "Get-NetRDPSession"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetrdpsession($bid);
+				}
+			}
+			item "Get-NetProcess"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetprocess($bid);
+				}
+			}
+			item "Get-UserEvent"{
+				local('$bid');
+				foreach $bid ($1){
+					getuserevent($bid);
+				}
+			}
+			item "Get-ADOject"{
+				local('$bid');
+				foreach $bid ($1){
+					getadobject($bid);
+				}
+			}
+			item "Set-ADObject"{
+				local('$bid');
+				foreach $bid ($1){
+					getadobject($bid);
+				}
+			}
+		}
+		menu "GPO functions"{
+			item "Get-GptTmpl"{
+				local('$bid');
+				foreach $bid ($1){
+					getgpttmpl($bid);
+				}
+			}
+			item "Get-NetGPO"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetgpo($bid);
+				}
+			}
+			item "Get-NetGPOGroup"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetgpogroup($bid);
+				}
+			}
+			item "Find-GPOLocation"{
+				local('$bid');
+				foreach $bid ($1){
+					findgpolocation($bid);
+				}
+			}
+			item "Find-GPOComputerAdmin"{
+				local('$bid');
+				foreach $bid ($1){
+					findgpocomputeradmin($bid);
+				}
+			}
+			item "Get-DomainPolicy"{
+				local('$bid');
+				foreach $bid ($1){
+					getdomainpolicy($bid);
+				}
+			}
+		}
+		menu "User-Hunting Functions"{
+			item "Invoke-UserHunter"{
+				local('$bid');
+				foreach $bid ($1){
+					invokeuserhunter($bid);
+				}
+			}
+			item "Invoke-StealthUserHunter"{
+				local('$bid');
+				foreach $bid ($1){
+					invokestealthuserhunter($bid);
+				}
+			}
+			item "Invoke-ProcessHunter"{
+				local('$bid');
+				foreach $bid ($1){
+					invokeprocesshunter($bid);
+				}
+			}
+		}
+		menu "Domain Trust Functions"{
+			item "Get-NetDomainTrust"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetdomaintrust($bid);
+				}
+			}
+			item "Get-NetForestTrust"{
+				local('$bid');
+				foreach $bid ($1){
+					getnetforesttrust($bid);
+				}
+			}
+			item "Find-ForeignUser"{
+				local('$bid');
+				foreach $bid ($1){
+					findforeignuser($bid);
+				}
+			}
+			item "Find-ForeignGroup"{
+				local('$bid');
+				foreach $bid ($1){
+					findforeigngroup($bid);
+				}
+			}
+			item "Invoke-MapDomainTrust"{
+				local('$bid');
+				foreach $bid ($1){
+					invokemapdomaintrust($bid);
+				}
+			}
+		}
+		menu "MetaFunctions" {
+			item "Invoke-ShareFinder"{
+				local('$bid');
+				foreach $bid ($1){
+					invokesharefinder($bid);
+				}
+			}
+			item "Invoke-FileFinder"{
+				local('$bid');
+				foreach $bid ($1){
+					invokefilefinder($bid);
+				}
+			}
+			item "Find-LocalAdminAccess"{
+				local('$bid');
+				foreach $bid ($1){
+					findlocaladminaccess($bid);
+				}
+			}
+			item "Find-ManagedSecurityGroups"{
+				local('$bid');
+				foreach $bid ($1){
+					findmanagedsecuritygroups($bid);
+				}
+			}
+			item "Find-UserField"{
+				local('$bid');
+				foreach $bid ($1){
+					finduserfield($bid);
+				}
+			}
+			item "Find-ComputerField"{
+				local('$bid');
+				foreach $bid ($1){
+					findcomputerfield($bid);
+				}
+			}
+			item "Get-ExploitableSystem"{
+				local('$bid');
+				foreach $bid ($1){
+					getexploitablesystem($bid);
+				}
+			}
+			item "Invoke-EnumerateLocalAdmin"{
+				local('$bid');
+				foreach $bid ($1){
+					invokeenumeratelocaladmin($bid);
+				}
+			}
+		}
+	}
+}
+
+#---------------
+#Misc Functions
+#---------------
+
+sub getipaddress{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-IPAddress", %(execmethod => "PowerPick", computername => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-IPAddress via PowerPick');
+			bpowerpick($bid, 'Get-IPAddress'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-IPAddress via PowerShell');
+			bpowershell($bid, 'Get-IPAddress'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Resolves a given hostename to its associated IPv4 address. If no hostname is provided, it defaults to returning the IP address of the localhost");
+	drow_text($dialog, "computername",  "ComputerName");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+
+sub findinterestingfile{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Find-InterestingFile", %(execmethod => "PowerPick", path => "", terms => "", lastaccesstime => "", lastwritetime => "", creationtime => "", outfile => "", officedocs => "false", freshexes => "false", excludefolders => "false", excludehidden => "false", checkwriteaccess => "false", usepsdrive => "false"), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Find-InterestingFile via PowerPick');
+			bpowerpick($bid, 'Find-InterestingFile'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Find-InterestingFile via PowerShell');
+			bpowershell($bid, 'Find-InterestingFile'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function recursively searches a given UNC path for files with specific keywords in the name (default of pass, sensitive, secret, admin, login and unattend*.xml). The output can be piped out to a csv with the -OutFile flag. By default, hidden files/folders are included in search results.");
+	drow_text($dialog, "path",  "Path");
+	drow_text($dialog, 'terms', "Terms");
+	drow_text($dialog, 'lastaccesstime', 'LastAccessTime');
+	drow_text($dialog, 'lastwritetime', 'LastWriteTime');
+	drow_text($dialog, 'creationtime', 'CreationTime');
+	drow_text($dialog, 'outfile', 'OutFile');
+	drow_checkbox($dialog, 'officedocs', 'OfficeDocs');
+	drow_checkbox($dialog, 'freshexes', 'FreshEXEs');
+	drow_checkbox($dialog, 'excludefolders', 'ExcludeFolders');
+	drow_checkbox($dialog, 'excludehidden', 'ExcludeHidden');
+	drow_checkbox($dialog, 'checkwriteaccess', 'CheckWriteAccess');
+	drow_checkbox($dialog, 'usepsdrive', 'UsePSDrive');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub convertnametosid{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Convert-NameToSid", %(execmethod => "PowerPick", computername => "", domain => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Convert-NameToSid via PowerPick');
+			bpowerpick($bid, 'Convert-NameToSid'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Convert-NameToSid via PowerShell');
+			bpowershell($bid, 'Convert-NameToSid'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Converts a given user/group name to a security identifier (SID)");
+	drow_text($dialog, "objectname",  "ObjectName");
+	drow_text($dialog, "domain",  "Domain");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub convertsidtoname{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Convert-SidToName", %(execmethod => "PowerPick", sid => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Convert-SidToName via PowerPick');
+			bpowerpick($bid, 'Convert-SidToName'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Convert-SidToName via PowerShell');
+			bpowershell($bid, 'Convert-SidToName'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Converts a security identifier (SID) to a group/user name");
+	drow_text($dialog, "sid",  "SID");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getproxy{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-Proxy", %(execmethod => "PowerPick", computername => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-Proxy via PowerPick');
+			bpowerpick($bid, 'Get-Proxy'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-Proxy via PowerShell');
+			bpowershell($bid, 'Get-Proxy'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Enumerates the proxy server and WPAD conents for the current user");
+	drow_text($dialog, "computername",  "ComputerName");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getpathacl{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-PathAcl", %(execmethod => "PowerPick", path => "", recurse => "false"), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-PathAcl via PowerPick');
+			bpowerpick($bid, 'Get-PathAcl'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-PathAcl via PowerShell');
+			bpowershell($bid, 'Get-PathAcl'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Enumerates the ACL for a given file path");
+	drow_text($dialog, "path",  "Path");
+	drow_checkbox($dialog, 'recurse', 'Recurse');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getuserproperty{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-UserProperty", %(execmethod => "PowerPick", properties => "", domain => "", domaincontroller => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-UserProperty via PowerPick');
+			bpowerpick($bid, 'Get-UserProperty'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-UserProperty via PowerShell');
+			bpowershell($bid, 'Get-UserProperty'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Returns a list of all user object properties. If a property name is specified, it returns all [user:property] values");
+	drow_text($dialog, 'properties', 'Properties');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getcomputerproperty{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-ComputerProperty", %(execmethod => "PowerPick", properties => "", domain => "", domaincontroller => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-ComputerProperty via PowerPick');
+			bpowerpick($bid, 'Get-ComputerProperty'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-ComputerProperty via PowerShell');
+			bpowershell($bid, 'Get-ComputerProperty'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Returns a list of all computer object properties. If a property name is specified, it returns all [computer:property] values");
+	drow_text($dialog, 'properties', 'Properties');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub invokechecklocaladminaccess{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Invoke-CheckLocalAdminAccess", %(execmethod => "PowerPick", computername => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Invoke-CheckLocalAdminAccess via PowerPick');
+			bpowerpick($bid, 'Invoke-CheckLocalAdminAccess'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Invoke-CheckLocalAdminAccess via PowerShell');
+			bpowershell($bid, 'Invoke-CheckLocalAdminAccess'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function will use the OpenSCManagerW Win32API call to establish a handle to the remote host. If this succeeds, the current user context has local administrator acess to the target");
+	drow_text($dialog, "computername",  "ComputerName");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getdomainseacher{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-DomainSearcher", %(execmethod => "PowerPick", domain => "", domaincontroller => "", adspath => "", adsprefix => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-DomainSearcher via PowerPick');
+			bpowerpick($bid, 'Get-DomainSearcher'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-DomainSearcher via PowerShell');
+			bpowershell($bid, 'Get-DomainSearcher'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Helper used by various functions that takes an ADSpath and domain specifier and builds the correct ADSI searcher object");
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'adsprefix', 'ADSprefix');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getobjectacl{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-ObjectAcl", %(execmethod => "PowerPick", samaccountname => "", name => "", distinguishedname => "", resolveguids => "false", filter => "", adspath => "", adsprefix => "", rightsfilter => "", domain => "", domaincontroller => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-ObjectAcl via PowerPick');
+			bpowerpick($bid, 'Get-ObjectAcl'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-ObjectAcl via PowerShell');
+			bpowershell($bid, 'Get-ObjectAcl'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Returns the ACLs associated with a specific active directory object");
+	drow_text($dialog, 'samaccountname', 'SamAccountName');
+	drow_text($dialog, 'name', 'Name');
+	drow_text($dialog, 'distinguishedname', 'DistinguishedName');
+	drow_text($dialog, 'filter', 'Filter');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'adsprefix', 'ADSprefix');
+	drow_text($dialog, 'rightsfilter', 'RightsFilter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'resolveguids', 'ResolveGUIDs');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub addobjecctacl{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Add-ObjectAcl", %(execmethod => "PowerPick", targetsamaccountname => "", targetname => "", targetdistinguishedname => "", targetfilter => "", targetadspath => "", targetadsprefix => "", principalsid => "", principalname => "", principalsamaccountname => "", rights => "", domain => "", domaincontroller => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Add-ObjectAcl via PowerPick');
+			bpowerpick($bid, 'Add-ObjectAcl'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Add-ObjectAcl via PowerShell');
+			bpowershell($bid, 'Add-ObjectAcl'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Adds an ACL for a specific active directory object");
+	drow_text($dialog, 'targetsamaccountname', 'TargetSamAccountName');
+	drow_text($dialog, 'targetname', 'TargetName');
+	drow_text($dialog, 'targetdistinguishedname', 'TargetDistinguishedName');
+	drow_text($dialog, 'targetfilter', 'TargetFilter');
+	drow_text($dialog, 'targetadspath', 'TargetADSpath');
+	drow_text($dialog, 'targetadsprefix', 'TargetADSprefix');
+	drow_text($dialog, 'principalsid', 'PrincipalSID');
+	drow_text($dialog, 'principalname', 'PrincipalName');
+	drow_text($dialog, 'principalsamaccountname', 'PrincipalSamAccountName');
+	drow_text($dialog, 'rights', 'Rights');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getlastloggedon{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-LastLoggedOn", %(execmethod => "PowerPick", computername => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-LastLoggedOn via PowerPick');
+			bpowerpick($bid, 'Get-LastLoggedOn'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-LastLoggedOn via PowerShell');
+			bpowershell($bid, 'Get-LastLoggedOn'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function uses remote registry functionality to return the last user logged onto a target machine - Requires administrative rights of enumerated system");
+	drow_text($dialog, "computername",  "ComputerName");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getcachedrdpconnection{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-CachedRDPConnection", %(execmethod => "PowerPick", computername => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-CachedRDPConnection via PowerPick');
+			bpowerpick($bid, 'Get-CachedRDPConnection'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-CachedRDPConnection via PowerShell');
+			bpowershell($bid, 'Get-CachedRDPConnection'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Uses remote registry functionality to query all entries for the 'Windows Remote Desktop Connection Client' on a machine, separated by user and target server");
+	drow_text($dialog, "computername",  "ComputerName");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub invokeaclscanner{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Invoke-ACLScanner", %(execmethod => "PowerPick", samaccountname => "", name => "", distinguishedname => "", filter => "", adspath => "", adsprefix => "", domain => "", domaincontroller => "", pagesize => "", resolveguids => "false"), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Invoke-ACLScanner via PowerPick');
+			bpowerpick($bid, 'Invoke-ACLScanner'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Invoke-ACLScanner via PowerShell');
+			bpowershell($bid, 'Invoke-ACLScanner'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Searches for ACLs for specifable AD objects (default to all domain objects) with a domain sid of > -1000, and have modifiable rights");
+	drow_text($dialog, 'samaccountname', 'SamAccountName');
+	drow_text($dialog, 'name', 'Name');
+	drow_text($dialog, 'distinguishedname', 'DistinguishedName');
+	drow_text($dialog, 'filter', 'Filter');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'adsprefix', 'ADSprefix');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'resolveguids', 'ResolveGUIDs');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getguidmap{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-GUIDMap", %(execmethod => "PowerPick", domain => "", domaincontroller => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-GUIDMap via PowerPick');
+			bpowerpick($bid, 'Get-GUIDMap'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-GUIDMap via PowerShell');
+			bpowershell($bid, 'Get-GUIDMap'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Helper to build a hash table of [GUID] -> resolved names");
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getdomainsid{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-DomainSID", %(execmethod => "PowerPick", domain => "", domaincontroller => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-DomainSID via PowerPick');
+			bpowerpick($bid, 'Get-DomainSID'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-DomainSID via PowerShell');
+			bpowershell($bid, 'Get-DomainSID'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Gets the SID for the domain");
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+
+
+#----------------
+#net * Functions
+#----------------
+
+sub getnetdomain{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetDomain", %(execmethod => "PowerPick", domain => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetDomain via PowerPick');
+			bpowerpick($bid, 'Get-NetDomain'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetDomain via PowerShell');
+			bpowershell($bid, 'Get-NetDomain'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Returns a given domain object");
+	drow_text($dialog, 'domain', 'Domain');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetforest{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetForest", %(execmethod => "PowerPick", forest => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetForest via PowerPick');
+			bpowerpick($bid, 'Get-NetForest'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetForest via PowerShell');
+			bpowershell($bid, 'Get-NetForest'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Returns a given forest object");
+	drow_text($dialog, 'forest', 'Forest');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetforestdomain{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetForestDomain", %(execmethod => "PowerPick", forest => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetForestDomain via PowerPick');
+			bpowerpick($bid, 'Get-NetForestDomain'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetForestDomain via PowerShell');
+			bpowershell($bid, 'Get-NetForestDomain'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Returns a given forest object");
+	drow_text($dialog, 'forest', 'Forest');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetdomaincontroller{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetDomainController", %(execmethod => "PowerPick", domain => "", domaincontroller => "", ldap => "false"), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetDomainController via PowerPick');
+			bpowerpick($bid, 'Get-NetDomainController'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetDomainController via PowerShell');
+			bpowershell($bid, 'Get-NetDomainController'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Return the current domain controllers for the active domain");
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_checkbox($dialog, 'ldap', 'LDAP');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetuser{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetUser", %(execmethod => "PowerPick", username => "", domain => "", domaincontroller => "", adspath => "", filter => "", admincount => "false", spn => "false", unconstrained => "false", allowdelegation => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetUser via PowerPick');
+			bpowerpick($bid, 'Get-NetUser'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetUser via PowerShell');
+			bpowershell($bid, 'Get-NetUser'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Query information for a given user or users in the domain using ADSI and LDAP. Another -Domain can be specified to query for users across a trust. Replacement for 'net users /domain'");
+	drow_text($dialog, 'username', 'UserName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'filter', 'Filter');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbow($dialog, 'admincount', 'AdminCount');
+	drow_checkbox($dialog, 'spn', 'SPN');
+	drow_checkbox($dialog, 'unconstrained', 'Unconstrained');
+	drow_checkbox($dialog, 'allowdelegation', 'AllowDelegation');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub addnetuser{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Add-NetUser", %(execmethod => "PowerPick", username => "", password => "", groupname => "", domain => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Add-NetUser via PowerPick');
+			bpowerpick($bid, 'Add-NetUser'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Add-NetUser via PowerShell');
+			bpowershell($bid, 'Add-NetUser'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Adds a domain user or a local user to the current (or remote) machine, if permissions allow, utilizing the WinNT service provider and DirectoryServices.AccountManagement, respectively. The default behavior is to add a user to the local machine. An optional group name to add the user to can be specified.");
+	drow_text($dialog, 'username', 'UserName');
+	drow_text($dialog, 'password', 'Password');
+	drow_text($dialog, 'groupname' 'GroupName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetcomputer{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetComputer", %(execmethod => "PowerPick", computername => "", spn => "", operatingsystem => "", servicepack => "", filter => "", printers => "false", ping => "false", fulldata => "false", domain => "", domaincontroller => "", adspath => "", sitename => "", unconstrained => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetComputer via PowerPick');
+			bpowerpick($bid, 'Get-NetComputer'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetComputer via PowerShell');
+			bpowershell($bid, 'Get-NetComputer'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function utilizes adsisearcher to query the current AD context for current computer objects. Based off of Carlos Perez's Audit.psm1 script in Posh-SecMod");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'spn', 'SPN');
+	drow_text($dialog, 'operatingsystem', 'OperatingSystem');
+	drow_text($dialog, 'servicepack', 'ServicePack');
+	drow_text($dialog, 'filter', 'Filter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'sitename', 'SiteName');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'ping', 'Ping');
+	drow_checkbox($dialog, 'printers', 'Printers');
+	drow_checkbox($dialog, 'fulldata', 'FullData');
+	drow_checkbox($dialog, 'unconstrained', 'Unconstrained');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetou{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetOU", %(execmethod => "PowerPick", ouname => "", guid => "", domain => "", domaincontroller => "", adspath => "", fulldata => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetOu via PowerPick');
+			bpowerpick($bid, 'Get-NetOU'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetOu via PowerShell');
+			bpowershell($bid, 'Get-NetOU'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Gets a list of all current OUs in a domain");
+	drow_text($dialog, 'ouname', 'OUName');
+	drow_text($dialog, 'guid', 'GUID');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'fulldata', 'FullData');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetsite{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetSite", %(execmethod => "PowerPick", sitename => "", domain => "", domaincontroller => "", adspath => "", guid => "", fulldata => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetSite via PowerPick');
+			bpowerpick($bid, 'Get-NetSite'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetSite via PowerShell');
+			bpowershell($bid, 'Get-NetSite'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Gets a list of all current sites in a domain");
+	drow_text($dialog, 'sitename', 'SiteName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'guid', 'GUID');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'fulldata', 'FullData');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetsubnet{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetSubnet", %(execmethod => "PowerPick", sitename => "", domain => "", domaincontroller => "", adspath => "", fulldata => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetSubnet via PowerPick');
+			bpowerpick($bid, 'Get-NetSubnet'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetSubnet via PowerShell');
+			bpowershell($bid, 'Get-NetSubnet'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Gets a list of all current subnets in a domain");
+	drow_text($dialog, 'sitename', 'SiteName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'fulldata', 'FullData');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetgroup{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetGroup", %(execmethod => "PowerPick", groupname => "", sid => "", username => "", filter => "", domain => "", domaincontroller => "", adspath => "", admincount => "false", fulldata => "false", rawsids => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetGroup via PowerPick');
+			bpowerpick($bid, 'Get-NetGroup'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetGroup via PowerShell');
+			bpowershell($bid, 'Get-NetGroup'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Gets a list of all current groups in a domain, or all the groups a given user/group object belongs to");
+	drow_text($dialog, 'groupname', 'GroupName');
+	drow_text($dialog, 'sid', 'SID');
+	drow_text($dialog, 'username', 'UserName');
+	drow_text($dialog, 'filter', 'Filter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'admincount', 'AdminCount');
+	drow_checkbox($dialog, 'rawsids', 'RawSids');
+	drow_checkbox($dialog, 'fulldata', 'FullData');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetgroupmemeber{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetGroupMember", %(execmethod => "PowerPick", groupname => "", sid => "", filter => "", domain => "", domaincontroller => "", adspath => "", fulldata => "false", recurse => "false", usematchingrule => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetGroupMember via PowerPick');
+			bpowerpick($bid, 'Get-NetGroupMember'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetGroupMember via PowerShell');
+			bpowershell($bid, 'Get-NetGroupMember'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function users [ADSI] and LDAP to query the current AD context or trusted domain for users in a specified group. If no GroupName is specified, it defaults to querying the 'Domain Admins' group. This is a replacement for 'net group 'name' /domain'");
+	drow_text($dialog, 'groupname', 'GroupName');
+	drow_text($dialog, 'sid', 'SID');
+	drow_text($dialog, 'filter', 'Filter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'recurse', 'Recurse');
+	drow_checkbox($dialog, 'usematchingrule', 'UseMatchingRule')
+	drow_checkbox($dialog, 'fulldata', 'FullData');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetlocalgroup{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetLocalGroup", %(execmethod => "PowerPick", computername => "", computerfile => "", groupname => "", listgroups => "false", recurse => "false", api => "false"), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetLocalGroup via PowerPick');
+			bpowerpick($bid, 'Get-NetLocalGroup'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetLocalGroup via PowerShell');
+			bpowershell($bid, 'Get-NetLocalGroup'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Gets a list of all current users in a specified local group, or returns the names of all local groups with -ListGroups");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'computerfile', 'ComputerFile');
+	drow_text($dialog, 'groupname', 'GroupName');
+	drow_checkbox($dialog, 'listgroups', 'ListGroups');
+	drow_checkbox($dialog, 'recurse', 'Recurse')
+	drow_checkbox($dialog, 'api', 'API');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub addnetgroupuser{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Add-NetGroupUser", %(execmethod => "PowerPick", username => "", groupname => "", computername => "", domain => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Add-NetGroupUser via PowerPick');
+			bpowerpick($bid, 'Add-NetGroupUser'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Add-NetGroupUser via PowerShell');
+			bpowershell($bid, 'Add-NetGroupUser'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Adds a user to a domain group or a local group on the current (or remote) machine, if permissions allow, utilizing the WinNT service provider and DirectoryServices.AccountManagement, respectively");
+	drow_text($dialog, 'username', 'UserName');
+	drow_text($dialog, 'groupname', 'GroupName');
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetfileserver{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetFileServer", %(execmethod => "PowerPick", domain => "", domaincontroller => "", targetusers => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetFileServer via PowerPick');
+			bpowerpick($bid, 'Get-NetFileServer'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetFileServer via PowerShell');
+			bpowershell($bid, 'Get-NetFileServer'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Returns a list of all file servers extracted from user homedirectory, scriptpath, and profilepath fields");
+	drow_text($dialog, 'domain', 'UserName');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'targetusers', 'TargetUsers');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetshare{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetShare", %(execmethod => "PowerPick", computername => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetShare via PowerPick');
+			bpowerpick($bid, 'Get-NetShare'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetShare via PowerShell');
+			bpowershell($bid, 'Get-NetShare'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function will execute the NetShareEnum Win32API call to query a given host for open shares. This is a replacement for 'net share \\hostname'");
+	drow_text($dialog, "computername",  "ComputerName");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetloggedon{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetLoggedon", %(execmethod => "PowerPick", computername => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetLoggedon via PowerPick');
+			bpowerpick($bid, 'Get-NetLoggedon'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetLoggedon via PowerShell');
+			bpowershell($bid, 'Get-NetLoggedon'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function will execute the NetWkstaUserEnum Win32API call to query a given host for actively logged on users");
+	drow_text($dialog, "computername",  "ComputerName");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetsession{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetSession", %(execmethod => "PowerPick", computername => "", username => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetSession via PowerPick');
+			bpowerpick($bid, 'Get-NetSession'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetSession via PowerShell');
+			bpowershell($bid, 'Get-NetSession'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function will execute the NetSessionEnum Win32API call to query a given host for active sessions on the host. Heavily adapted from dunedinite's post on stackoverflow");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'username', 'UserName');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetrdpsession{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetRDPSession", %(execmethod => "PowerPick", computername => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetRDPSession via PowerPick');
+			bpowerpick($bid, 'Get-NetRDPSession'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetRDPSession via PowerShell');
+			bpowershell($bid, 'Get-NetRDPSession'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function will execute the WTSEnumerateSessionsEx and WTSQuerySessionInformation Win32API calls to query a given RDP remote service for active sessions and originating IPs. This is a replacement for qwinsta. Note: only members of the Administrators or Account Operators local group can successfully execute this functionality on a remote target.");
+	drow_text($dialog, "computername",  "ComputerName");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetprocess{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetProcess", %(execmethod => "PowerPick", computername => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetProcess via PowerPick');
+			bpowerpick($bid, 'Get-NetProcess'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-Get-NetProcess via PowerShell');
+			bpowershell($bid, 'Get-NetProcess'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Gets a list of processes/owners on a remote machine");
+	drow_text($dialog, "computername",  "ComputerName");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getuserevent{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-UserEvent", %(execmethod => "PowerPick", computername => "", eventtype => "", datestart => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-UserEvent via PowerPick');
+			bpowerpick($bid, 'Get-UserEvent'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-UserEvent via PowerShell');
+			bpowershell($bid, 'Get-UserEvent'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Dump and parse security events relating to an account logon (ID 4624) or a TGT request event (ID 4768). Intended to be used and tested on Windows 2008 Domain Controllers. Admin Reqd? YES");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'eventtype', 'EventType');
+	drow_text($dialog, 'datestart', 'DateStart');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getadobject{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-ADObject", %(execmethod => "PowerPick", sid => "", name => "", samaccountname => "", domain => "", domaincontroller => "", adspath => "", filter => "", returnraw => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-ADObject via PowerPick');
+			bpowerpick($bid, 'Get-ADObject'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-ADObject via PowerShell');
+			bpowershell($bid, 'Get-ADObject'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Takes a domain SID and returns the user, group, or computer object  associated with it");
+	drow_text($dialog, 'sid', 'SID');
+	drow_text($dialog, 'name', 'Name');
+	drow_text($dialog, 'samaccountname', 'SamAccountName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'filter', 'Filter');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'returnraw', 'ReturnRaw');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub setadobject{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Set-ADObject", %(execmethod => "PowerPick", sid => "", name => "", samaccountname => "", domain => "", domaincontroller => "", filter => "", propertyname => "", propertyvalue => "", propertyxorvalue => "", clearvalue => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Set-ADObject via PowerPick');
+			bpowerpick($bid, 'Set-ADObject'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Set-ADObject via PowerShell');
+			bpowershell($bid, 'Set-ADObject'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Takes a SID, name, or SamAccountName to query for a specified domain object, and then sets a specified 'PropertyName' to a specified 'PropertyValue'");
+	drow_text($dialog, 'sid', 'SID');
+	drow_text($dialog, 'name', 'Name');
+	drow_text($dialog, 'samaccountname', 'SamAccountName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'filter', 'Filter');
+	drow_text($dialog, 'propertyname', 'PropertyName');
+	drow_text($dialog, 'propertyvalue', 'PropertyValue');
+	drow_text($dialog, 'propertyxorvalue', 'PropertyXorValue');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'clearvalue', 'ClearValue');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+
+#-----------------------
+#User-Hunting Functions
+#-----------------------
+
+sub invokeuserhunter{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Invoke-UserHunter", %(execmethod => "PowerPick", computername => "", computerfile => "", computerfilter => "", computeradspath => "", unconstrained => "false", groupname => "", targetserver => "", username => "", userfilter => "", useradspath => "", userfile => "", admincount => "false", allowdelegation => "false", stoponsuccess => "false", noping => "false", checkaccess => "false", delay => "", jitter => "", domain => "", domaincontroller => "", showall => "false", searchforest => "false", stealth => "false", stealthsource => "", foreignusers => "false", threads => "", poll => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Invoke-UserHunter via PowerPick');
+			bpowerpick($bid, 'Invoke-UserHunter'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Invoke-UserHunter via PowerShell');
+			bpowershell($bid, 'Invoke-UserHunter'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Finds which machines users of a specified group are logged into");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'computerfile', 'ComputerFile');
+	drow_text($dialog, 'computerfilter', 'ComputerFilter');
+	drow_text($dialog, 'computeradspath', 'ComputerADSpath');
+	drow_text($dialog, 'groupname', 'GroupName');
+	drow_text($dialog, 'targetserver', 'TargetServer');
+	drow_text($dialog, 'username', 'UserName');
+	drow_text($dialog, 'userfilter', 'UserFilter');
+	drow_text($dialog, 'useradspath', 'UserADSpath');
+	drow_text($dialog, 'userfile', 'UserFile');
+	drow_text($dialog, 'delay', 'Delay');
+	drow_text($dialog, 'jitter', 'Jitter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'threads', 'Threads');
+	drow_text($dialog, 'poll', 'Poll');
+	drow_checkbox($dialog, 'unconstrained', 'Unconstrained');
+	drow_checkbox($dialog, 'admincount', 'AdminCount');
+	drow_checkbox($dialog, 'allowdelegation', 'AllowDelegation');
+	drow_checkbox($dialog, 'stoponsuccess', 'StopOnSuccess');
+	drow_checkbox($dialog, 'noping', 'NoPing');
+	drow_checkbox($dialog, 'checkaccess', 'CheckAccess');
+	drow_checkbox($dialog, 'showall', 'ShowAll');
+	drow_checkbox($dialog, 'searchforest', 'SearchForest');
+	drow_checkbox($dialog, 'stealth', 'Stealth');
+	drow_checkbox($dialog, 'foreignusers', 'ForeignUsers');
+	drow_combobox($dialog, "stealthsource", "StealthSource: ", @("", "DFS", "DC", "File", "All"));
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub invokestealthuserhunter{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Invoke-StealthUserHunter", %(execmethod => "PowerPick", computername => "", computerfile => "", computerfilter => "", computeradspath => "", groupname => "", targetserver => "", username => "", userfilter => "", useradspath => "", userfile => "", stoponsuccess => "false", noping => "false", checkaccess => "false", delay => "", jitter => "", domain => "", showall => "false", searchforest => "false", stealthsource => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Invoke-StealthUserHunter via PowerPick');
+			bpowerpick($bid, 'Invoke-StealthUserHunter'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Invoke-StealthUserHunter via PowerShell');
+			bpowershell($bid, 'Invoke-StealthUserHunter'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Invoke-UserHunter...but stealth");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'computerfile', 'ComputerFile');
+	drow_text($dialog, 'computerfilter', 'ComputerFilter');
+	drow_text($dialog, 'computeradspath', 'ComputerADSpath');
+	drow_text($dialog, 'groupname', 'GroupName');
+	drow_text($dialog, 'targetserver', 'TargetServer');
+	drow_text($dialog, 'username', 'UserName');
+	drow_text($dialog, 'userfilter', 'UserFilter');
+	drow_text($dialog, 'useradspath', 'UserADSpath');
+	drow_text($dialog, 'userfile', 'UserFile');
+	drow_text($dialog, 'delay', 'Delay');
+	drow_text($dialog, 'jitter', 'Jitter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_checkbox($dialog, 'stoponsuccess', 'StopOnSuccess');
+	drow_checkbox($dialog, 'noping', 'NoPing');
+	drow_checkbox($dialog, 'checkaccess', 'CheckAccess');
+	drow_checkbox($dialog, 'showall', 'ShowAll');
+	drow_checkbox($dialog, 'searchforest', 'SearchForest');
+	drow_combobox($dialog, "stealthsource", "StealthSource: ", @("", "DFS", "DC", "File", "All"));
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub invokeprocesshunter{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Invoke-ProcessHunter", %(execmethod => "PowerPick", computername => "", computerfile => "", computerfilter => "", computeradspath => "", processname => "", groupname => "", targetserver => "", username => "", userfilter => "", useradspath => "", userfile => "", stoponsuccess => "false", noping => "false", delay => "", jitter => "", domain => "", domaincontroller => "", showall => "false", searchforest => "false", threads => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Invoke-ProcessHunter via PowerPick');
+			bpowerpick($bid, 'Invoke-ProcessHunter'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Invoke-ProcessHunter via PowerShell');
+			bpowershell($bid, 'Invoke-ProcessHunter'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Query the process lists of remote machines, searching for processes with a specific name or owned by a specific user");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'computerfile', 'ComputerFile');
+	drow_text($dialog, 'computerfilter', 'ComputerFilter');
+	drow_text($dialog, 'computeradspath', 'ComputerADSpath');
+	drow_text($dialog, 'processname', 'ProcessName');
+	drow_text($dialog, 'groupname', 'GroupName');
+	drow_text($dialog, 'targetserver', 'TargetServer');
+	drow_text($dialog, 'username', 'UserName');
+	drow_text($dialog, 'userfilter', 'UserFilter');
+	drow_text($dialog, 'useradspath', 'UserADSpath');
+	drow_text($dialog, 'userfile', 'UserFile');
+	drow_text($dialog, 'delay', 'Delay');
+	drow_text($dialog, 'jitter', 'Jitter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'threads', 'Threads');
+	drow_checkbox($dialog, 'stoponsuccess', 'StopOnSuccess');
+	drow_checkbox($dialog, 'noping', 'NoPing');
+	drow_checkbox($dialog, 'showall', 'ShowAll');
+	drow_checkbox($dialog, 'searchforest', 'SearchForest');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+
+#--------------
+#GPO functions
+#--------------
+
+sub getgpttmpl{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-GptTmpl", %(execmethod => "PowerPick", gpttmplpath => "", usepsdrive => "false"), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-GptTmpl via PowerPick');
+			bpowerpick($bid, 'Get-GptTmpl'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-GptTmpl via PowerShell');
+			bpowershell($bid, 'Get-GptTmpl'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Helper to parse a GptTmpl.inf policy file path into a custom object");
+	drow_text($dialog, 'gpttmplpath', 'GptTmplPath');
+	drow_checkbox($dialog, 'usepsdrive', 'UsePSDrive');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetgpo{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetGPO", %(execmethod => "PowerPick", gponame => "", displayname => "", computername => "", domain => "", domaincontroller => "", adspath => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetGPO via PowerPick');
+			bpowerpick($bid, 'Get-NetGPO'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetGPO via PowerShell');
+			bpowershell($bid, 'Get-NetGPO'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Gets a list of all current GPOs in a domain");
+	drow_text($dialog, 'gponame', 'GPOname');
+	drow_text($dialog, 'displayname', 'DisplayName');
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetgpogroup{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetGPOGroup", %(execmethod => "PowerPick", gponame => "", displayname => "", domain => "", domaincontroller => "", adspath => "", resolvemembersids => "false", usepsdrive => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetGPOGroup via PowerPick');
+			bpowerpick($bid, 'Get-NetGPOGroup'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetGPOGroup via PowerShell');
+			bpowershell($bid, 'Get-NetGPOGroup'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Returns all GPOs in a domain that set 'Restricted Groups' or use groups.xml on on target machines");
+	drow_text($dialog, 'gponame', 'GPOname');
+	drow_text($dialog, 'displayname', 'DisplayName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'resolvemembersids', 'ResolveMemberSIDs');
+	drow_checkbox($dialog, 'usepsdrive', 'UsePSDrive');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub findgpolocation{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Find-GPOLocation", %(execmethod => "PowerPick", username => "", groupname => "", domain => "", domaincontroller => "", localgroup => "", uspsdrive => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Find-GPOLocation via PowerPick');
+			bpowerpick($bid, 'Find-GPOLocation'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Find-GPOLocation via PowerShell');
+			bpowershell($bid, 'Find-GPOLocation'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Enumerates the machines where a specific user/group is a member of a specific local group, all through GPO correlation");
+	drow_text($dialog, 'username', 'UserName');
+	drow_text($dialog, 'groupname', 'GroupName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'localgroup', 'LocalGroup');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'usepsdrive', 'UsePSDrive');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub findgpocomputeradmin{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Find-GPOComputerAdmin", %(execmethod => "PowerPick", computername => "", ouname => "", domain => "", domaincontroller => "", recurse => "false", localgroup => "", usepsdrive => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Find-GPOComputerAdmin via PowerPick');
+			bpowerpick($bid, 'Find-GPOComputerAdmin'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Find-GPOComputerAdmin via PowerShell');
+			bpowershell($bid, 'Find-GPOComputerAdmin'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Takes a computer (or GPO) object and determines what users/groups are in the specified local group for the machine");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'ouname', 'OUName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'localgroup', 'LocalGroup');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'recurse', 'Recurse');
+	drow_checkbox($dialog, 'usepsdrive', 'UsePSDrive');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getdomainpolicy{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-DomainPolicy", %(execmethod => "PowerPick", source => "", domain => "", domaincontroller => "", resolvesids => "false", usepsdrive => "false"), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-DomainPolicy via PowerPick');
+			bpowerpick($bid, 'Get-DomainPolicy'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-DomainPolicy via PowerShell');
+			bpowershell($bid, 'Get-DomainPolicy'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Returns the default domain or DC policy for a given domain or domain controller");
+	drow_text($dialog, 'source', 'Source');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_checkbox($dialog, 'resolvesids', 'ResolveSids');
+	drow_checkbox($dialog, 'usepsdrive', 'UsePSDrive');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+
+#-----------------------
+#Domain Trust Functions
+#-----------------------
+
+sub getnetdomaintrust{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetDomainTrust", %(execmethod => "PowerPick", domain => "", domaincontroller => "", adspath => "", api => "false", ldap => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetDomainTrust via PowerPick');
+			bpowerpick($bid, 'Get-NetDomainTrust'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetDomainTrust via PowerShell');
+			bpowershell($bid, 'Get-NetDomainTrust'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Return all domain trusts for the current domain or a specified domain");
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'api', 'API');
+	drow_checkbox($dialog, 'ldap', 'LDAP');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getnetforesttrust{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-NetForestTrust", %(execmethod => "PowerPick", forest => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-NetForestTrust via PowerPick');
+			bpowerpick($bid, 'Get-NetForestTrust'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-NetForestTrust via PowerShell');
+			bpowershell($bid, 'Get-NetForestTrust'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Return all trusts for the current forest");
+	drow_text($dialog, 'forest', 'Forest');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub findforeignuser{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Find-ForeignUser", %(execmethod => "PowerPick", username => "", domain => "", domaincontroller => "", ldap => "false", recurse => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Find-ForeignUser via PowerPick');
+			bpowerpick($bid, 'Find-ForeignUser'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Find-ForeignUser via PowerShell');
+			bpowershell($bid, 'Find-ForeignUser'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Enumerates users who are in groups outside of their principal domain. The -Recurse option will try to map all transitive domain trust relationships and enumerate all users who are in groups outside of their principal domain");
+	drow_text($dialog, 'username', 'UserName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'recurse', 'Recurse');
+	drow_checkbox($dialog, 'ldap', 'LDAP');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub findforeigngroup{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Find-ForeignGroup", %(execmethod => "PowerPick", groupname => "", domain => "", domaincontroller => "", ldap => "false", recurse => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Find-ForeignGroup via PowerPick');
+			bpowerpick($bid, 'Find-ForeignGroup'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Find-ForeignGroup via PowerShell');
+			bpowershell($bid, 'Find-ForeignGroup'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Enumerates all the members of a given domain's groups and finds users that are not in the queried domain. The -Recurse flag will perform this enumeration for all eachable domain trusts");
+	drow_text($dialog, 'groupname', 'GroupName');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'recurse', 'Recurse');
+	drow_checkbox($dialog, 'ldap', 'LDAP');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub invokemapdomaintrust{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Invoke-MapDomainTrust", %(execmethod => "PowerPick", ldap => "false", domaincontroller => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Invoke-MapDomainTrust via PowerPick');
+			bpowerpick($bid, 'Invoke-MapDomainTrust'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Invoke-MapDomainTrust via PowerShell');
+			bpowershell($bid, 'Invoke-MapDomainTrust'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function gets all trusts for the current domain, and tries to get all trusts for each domain it finds");
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'ldap', 'LDAP');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+
+#--------------
+#MetaFunctions
+#--------------
+
+sub invokesharefinder{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Invoke-ShareFinder", %(execmethod => "PowerPick", computername => "", computerfile => "", computerfilter => "", computeradspath => "", excludestandard => "false", excludeprint => "false", excludeipc => "false", checkshareaccess => "false", checkadmin => "false", noping => "false", delay => "", jitter => "", domain => "", domaincontroller => "", searchforest => "false", threads => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Invoke-ShareFinder via PowerPick');
+			bpowerpick($bid, 'Invoke-ShareFinder'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Invoke-ShareFinder via PowerShell');
+			bpowershell($bid, 'Invoke-ShareFinder'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function finds the local domain name for a host using Get-NetDomain, queries the domain for all active machines with Get-NetComputer, then for each server it lists of active shares with Get-NetShare. Non-standard shares can be filtered out with -Exclude* flags");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'computerfile', 'ComputerFile');
+	drow_text($dialog, 'computerfilter', 'ComputerFilter');
+	drow_text($dialog, 'computeradspath', 'ComputerADSpath');
+	drow_text($dialog, 'delay', 'Delay');
+	drow_text($dialog, 'jitter', 'Jitter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'threads', 'Threads');
+	drow_checkbox($dialog, 'excludestandard', 'ExcludeStandard');
+	drow_checkbox($dialog, 'excludeprint', 'ExcludePrint');
+	drow_checkbox($dialog, 'excludeipc', 'ExcludeIPC');
+	drow_checkbox($dialog, 'checkshareaccess', 'CheckShareAccess');
+	drow_checkbox($dialog, 'checkadmin', 'CheckAdmin');
+	drow_checkbox($dialog, 'noping', 'NoPing');
+	drow_checkbox($dialog, 'searchforest', 'SearchForest');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub invokefilefinder{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Invoke-FileFinder", %(execmethod => "PowerPick", computername => "", computerfile => "", computerfilter => "", computeradspath => "", sharelist => "", terms => "", officedocs => "false", freshexes => "false", lastaccesstime => "", lastwritetime => "", creationtime => "", includedc => "false", includeadmin => "false", excludefolders => "false", excludehidden => "false", checkwriteaccess => "false", outfile => "", noclobber => "false", noping => "false", delay => "", jitter => "", domain => "", domaincontroller => "", searchforest => "false", searchsysvol => "false", threads => "", uspsdrive => "false"), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Invoke-FileFinder via PowerPick');
+			bpowerpick($bid, 'Invoke-FileFinder'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Invoke-FileFinder via PowerShell');
+			bpowershell($bid, 'Invoke-FileFinder'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Finds sensitive files on the domain");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'computerfile', 'ComputerFile');
+	drow_text($dialog, 'computerfilter', 'ComputerFilter');
+	drow_text($dialog, 'computeradspath', 'ComputerADSpath');
+	drow_text($dialog, 'sharelist', 'ShareList');
+	drow_text($dialog, 'terms', 'Terms');
+	drow_text($dialog, 'lastaccesstime', 'LastAccessTime');
+	drow_text($dialog, 'lastwritetime', 'LastWriteTime');
+	drow_text($dialog, 'creationtime', 'CreationTime');
+	drow_text($dialog, 'outfile', 'OutFile');
+	drow_text($dialog, 'delay', 'Delay');
+	drow_text($dialog, 'jitter', 'Jitter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'threads', 'Threads');
+	drow_checkbox($dialog, 'officedocs', 'OfficeDocs');
+	drow_checkbox($dialog, 'freshexes', 'FreshEXEs');
+	drow_checkbox($dialog, 'includedc', 'IncludeDC');
+	drow_checkbox($dialog, 'includeadmin', 'IncludeAdmin');
+	drow_checkbox($dialog, 'excludefolders', 'ExcludeFolders');
+	drow_checkbox($dialog, 'excludehidden', 'ExcludeHidden');
+	drow_checkbox($dialog, 'checkwriteaccess', 'CheckWriteAccess');
+	drow_checkbox($dialog, 'noclobber', 'NoClobber');
+	drow_checkbox($dialog, 'noping', 'NoPing');
+	drow_checkbox($dialog, 'searchforest', 'SearchForest');
+	drow_checkbox($dialog, 'searchsysvol', 'SearchSYSVOL');
+	drow_checkbox($dialog, 'uspsdrive', 'UsePSDrive');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub findlocaladminaccess{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Find-LocalAdminAccess", %(execmethod => "PowerPick", computername => "", computerfile => "", computerfilter => "", computeradspath => "", noping => "false", delay => "", jitter => "", domain => "", domaincontroller => "", searchforest => "false", threads => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Find-LocalAdminAccess via PowerPick');
+			bpowerpick($bid, 'Find-LocalAdminAccess'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Find-LocalAdminAccess via PowerShell');
+			bpowershell($bid, 'Find-LocalAdminAccess'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Finds machines on the local domain where the current user has local administrator access. Uses multithreading to speed up enumeration");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'computerfile', 'ComputerFile');
+	drow_text($dialog, 'computerfilter', 'ComputerFilter');
+	drow_text($dialog, 'computeradspath', 'ComputerADSpath');
+	drow_text($dialog, 'delay', 'Delay');
+	drow_text($dialog, 'jitter', 'Jitter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'threads', 'Threads');
+	drow_checkbox($dialog, 'noping', 'NoPing');
+	drow_checkbox($dialog, 'searchforest', 'SearchForest');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub findmanagedsecuritygroups{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Find-ManagedSecurityGroups", %(execmethod => "PowerPick"), lambda({
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Find-ManagedSecurityGroups via PowerPick');
+			bpowerpick($bid, 'Find-ManagedSecurityGroups'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Find-ManagedSecurityGroups via PowerShell');
+			bpowershell($bid, 'Find-ManagedSecurityGroups'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function retrieves all security groups in the domain and identifies ones that have a manager set. It also determines whether the manager has the ability to add or remove members from the group");
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub finduserfield{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Find-UserField", %(execmethod => "PowerPick", searchterm => "", searchfield => "", adspath => "", domain => "", domaincontroller => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Find-UserField via PowerPick');
+			bpowerpick($bid, 'Find-UserField'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Find-UserField via PowerShell');
+			bpowershell($bid, 'Find-UserField'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Searches user object fields for a given word (default *pass*). Default field being searched is 'description'");
+	drow_text($dialog, 'searchterm', 'SearchTerm');
+	drow_text($dialog, 'searchfield', 'SearchField');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub findcomputerfield{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Find-ComputerField", %(execmethod => "PowerPick", searchterm => "", searchfield => "", adspath => "", domain => "", domaincontroller => "", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Find-ComputerField via PowerPick');
+			bpowerpick($bid, 'Find-ComputerField'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Find-ComputerField via PowerShell');
+			bpowershell($bid, 'Find-ComputerField'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "Searches computer object fields for a given word (default *pass*). Default field being searched is 'description'");
+	drow_text($dialog, 'searchterm', 'SearchTerm');
+	drow_text($dialog, 'searchfield', 'SearchField');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub getexploitablesystem{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Get-ExploitableSystem", %(execmethod => "PowerPick", computername => "", spn => "", operatingsystem => "", servicepack => "", filter => "", ping => "false", domain => "", domaincontroller => "", adspath => "", unconstrained => "false", pagesize => ""), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Get-ExploitableSystem via PowerPick');
+			bpowerpick($bid, 'Get-ExploitableSystem'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Get-ExploitableSystem via PowerShell');
+			bpowershell($bid, 'Get-ExploitableSystem'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This module will query Active Directory for the hostname, OS version, and service pack level for each computer account.  That information is then cross-referenced against a list of common Metasploit exploits that can be used during penetration testing");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'spn', 'SPN');
+	drow_text($dialog, 'operatingsystem', 'OperatingSystem');
+	drow_text($dialog, 'servicepack', 'ServicePack');
+	drow_text($dialog, 'filter', 'Filter');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'adspath', 'ADSpath');
+	drow_text($dialog, 'pagesize', 'PageSize');
+	drow_checkbox($dialog, 'ping', 'Ping');
+	drow_checkbox($dialog, 'unconstrained', 'Unconstrained');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
+sub invokeenumeratelocaladmin{
+	$bid = $1;
+	$cmdargs = "";
+	$dialog = dialog("PowerView 2.0 Invoke-EnumerateLocalAdmin", %(execmethod => "PowerPick", computername => "", computerfile => "", computerfilter => "", computeradspath => "", noping => "false", delay => "", jitter => "", outfile => "", noclobber => "false", trustgroups => "false", domainonly => "false", domain => "", domaincontroller => "", searchforest => "false", api => "false", threads => "false"), lambda({
+		foreach $key => $value ($3){
+			if ($value ne "" && $value ne "false" && $value ne "true" && $key ne "execmethod"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+				$cmdargs .= ' ';
+				$cmdargs .= $value;
+			}
+			else if ($value eq "true"){
+				$cmdargs .= ' -';
+				$cmdargs .= $key;
+			}
+		}
+		if($3["execmethod"] eq "PowerPick"){
+			btask($bid, 'Executing PowerView Invoke-EnumerateLocalAdmin via PowerPick');
+			bpowerpick($bid, 'Invoke-EnumerateLocalAdmin'.$cmdargs.'');
+		}
+		else if ($3["execmethod"] eq "PowerShell"){
+			btask($bid, 'Executing PowerView Invoke-EnumerateLocalAdmin via PowerShell');
+			bpowershell($bid, 'Invoke-EnumerateLocalAdmin'.$cmdargs.'');
+		}
+	}));
+	dialog_description($dialog, "This function queries the domain for all active machines with Get-NetComputer, then for each server it queries the local Administrators with Get-NetLocalGroup");
+	drow_text($dialog, 'computername', 'ComputerName');
+	drow_text($dialog, 'computerfile', 'ComputerFile');
+	drow_text($dialog, 'computerfilter', 'ComputerFilter');
+	drow_text($dialog, 'computeradspath', 'ComputerADSpath');
+	drow_text($dialog, 'delay', 'Delay');
+	drow_text($dialog, 'jitter', 'Jitter');
+	drow_text($dialog, 'outfile', 'Outfile');
+	drow_text($dialog, 'domain', 'Domain');
+	drow_text($dialog, 'domaincontroller', 'DomainController');
+	drow_text($dialog, 'threads', 'Threads');
+	drow_checkbox($dialog, 'noping', 'NoPing');
+	drow_checkbox($dialog, 'trustgroups', 'TrustGroups');
+	drow_checkbox($dialog, 'domainonly', 'DomainOnly');
+	drow_checkbox($dialog, 'noclobber', 'NoClobber');
+	drow_checkbox($dialog, 'searchforest', 'SearchForest');
+	drow_checkbox($dialog, 'api', 'API');
+	drow_combobox($dialog, "execmethod", "Exec Method ", @("PowerPick", "PowerShell"));
+	dbutton_action($dialog, "Run");
+	dialog_show($dialog);
+}
